@@ -27,6 +27,16 @@
 				location.href = "userdelete.action?userId=" + $(this).val();
 			}
 		});
+		
+		$(".updateBtn").click(function()
+		{
+			
+		});
+		
+		$(".addBtn").click(function()
+		{
+			$(location).attr("href","useraddform.action");	
+		});
 	});
 
 </script>
@@ -69,7 +79,7 @@
 </div>
 
 <div>
-	<button type="button" clss="btn addBtn">Add</button>
+	<button type="button" class="btn addBtn">Add</button>
 	
 </div>
 

@@ -41,6 +41,10 @@
 		<property name="dataSource" ref="localDataSource"></property>
 	</bean>
 	
+	<bean id="jobDao" class="com.test.mvc.JobDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	
 	
 	<!-- DAO 서블릿 매핑 userlist.action / UserListController -->
 	<bean name="/userlist.action" class="com.test.mvc.UserListController">
@@ -50,6 +54,15 @@
 	
 	<!-- userdelete.action -->
 	<bean name="/userdelete.action" class="com.test.mvc.UserDeleteController">
+		<property name="dao" ref="userDao"></property>
+	</bean>
+	
+	<!-- useradd.action -->
+	<bean name="/useraddform.action" class="com.test.mvc.UserAddFormController">
+		<property name="jobDao" ref="jobDao"></property>
+	</bean>
+	
+	<bean name="/useradd.action" class="com.test.mvc.UserAddController">
 		<property name="dao" ref="userDao"></property>
 	</bean>
 	
