@@ -12,6 +12,11 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div>index.jsp</div>
+
+<div>
+	<h1>UserList.jsp</h1>
+	<hr />
+</div>
+
 </body>
 </html>
