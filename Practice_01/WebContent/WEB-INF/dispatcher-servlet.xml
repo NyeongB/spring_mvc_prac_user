@@ -37,9 +37,15 @@
 		<property name="password" value="tiger"></property>
 	</bean>
 	
+	<bean id="userDao" class="com.test.mvc.UserDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	
 	
 	<!-- DAO 서블릿 매핑 userlist.action / UserListController -->
-	<bean name="/userlist.action" class="com.test.mvc.UserListController"></bean>
+	<bean name="/userlist.action" class="com.test.mvc.UserListController">
+		<property name="dao" ref="userDao"></property>
+	</bean>
 	
 	
 
