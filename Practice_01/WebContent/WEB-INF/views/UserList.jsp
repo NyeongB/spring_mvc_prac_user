@@ -22,7 +22,10 @@
 			
 			//alert($(this).val());
 			
-			if
+			if(confirm("정말 삭제하시겠습니까?"))
+			{
+				location.href = "userdelete.action?userId=" + $(this).val();
+			}
 		});
 	});
 

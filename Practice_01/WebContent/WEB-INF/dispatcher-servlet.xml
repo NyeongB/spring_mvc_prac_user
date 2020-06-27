@@ -48,6 +48,12 @@
 	</bean>
 	
 	
+	<!-- userdelete.action -->
+	<bean name="/userdelete.action" class="com.test.mvc.UserDeleteController">
+		<property name="dao" ref="userDao"></property>
+	</bean>
+	
+	
 
 </beans>
 

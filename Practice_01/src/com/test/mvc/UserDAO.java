@@ -62,8 +62,17 @@ public class UserDAO implements IUserDAO
 	@Override
 	public int remove(int userId) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		Connection conn = dataSource.getConnection();
+		String sql = "DELETE FROM TBL_USER WHERE USERID =?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, userId);
+		result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		return result;
 	}
 
 }
