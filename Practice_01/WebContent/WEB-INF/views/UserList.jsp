@@ -13,6 +13,20 @@
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="<%=cp %>/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function()
+	{
+		$(".deleteBtn").click(function()
+		{
+			
+			//alert($(this).val());
+			
+			if
+		});
+	});
+
+</script>
 
 </head>
 <body>
@@ -39,8 +53,12 @@
 			<td>${user.userName }</td>
 			<td>${user.userAge }</td>
 			<td>${user.jobName }</td>
-			<td><input type="button" value="Delete" class="btn btn-default"></td>
-			<td><input type="button" value="Update" class="btn btn-default"></td>
+			<td>
+				<button type="button" class="btn deleteBtn" value="${user.userId }">Delete</button>
+			</td>
+			<td>
+				<button type="button" class="btn updateBtn">Update</button>
+			</td>
 		</tr>
 		</c:forEach>
 		
@@ -48,7 +66,7 @@
 </div>
 
 <div>
-	<input type="button" value="Add" class="btn btn-default">
+	<button type="button" clss="btn addBtn">Add</button>
 	
 </div>
 
