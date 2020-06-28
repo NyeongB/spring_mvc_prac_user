@@ -24,7 +24,7 @@ public class UserDAO implements IUserDAO
 	{
 		ArrayList<User> result = new ArrayList<User>();
 		Connection conn = dataSource.getConnection();
-		String sql = "SELECT USERID, USERNAME, USERAGE, JOBNAME FROM VIEW_USER";
+		String sql = "SELECT USERID, USERNAME, USERAGE, JOBNAME, JOBID FROM VIEW_USER";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		
@@ -35,6 +35,7 @@ public class UserDAO implements IUserDAO
 			user.setUserName(rs.getString("USERNAME"));
 			user.setUserAge(rs.getString("USERAGE"));
 			user.setJobName(rs.getString("JOBNAME"));
+			user.setJobId(rs.getString("JOBID"));
 			
 			result.add(user);
 		}
@@ -48,16 +49,44 @@ public class UserDAO implements IUserDAO
 	@Override
 	public int add(User user) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		
+		Connection conn = dataSource.getConnection();
+		String sql = "INSERT INTO TBL_USER(USERID, USERNAME, USERBIRTH, JOBID)"
+				+ " VALUES(USER_SEQ.NEXTVAL, ?,"
+				+ " TO_DATE(?, 'YYYY-MM-DD'),?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, user.getUserName());
+		pstmt.setString(2, user.getUserBirth());
+		pstmt.setString(3, user.getJobId());
+		result = pstmt.executeUpdate();
+		
+		return result;
 	}
 
 	@Override
 	public int modify(User user) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		
+		Connection conn = dataSource.getConnection();
+		String sql = "UPDATE TBL_USER SET USERNAME =?,"
+				+ " USERBIRTH = ?, JOBID = ? WHERE USERID = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, user.getUserName());
+		pstmt.setString(2, user.getUserBirth());
+		pstmt.setString(3, user.getJobId());
+		pstmt.setString(4, user.getUserId());
+		
+		result  = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+		return result;
 	}
+	
+	
 
 	@Override
 	public int remove(int userId) throws SQLException
@@ -69,6 +98,37 @@ public class UserDAO implements IUserDAO
 		pstmt.setInt(1, userId);
 		result = pstmt.executeUpdate();
 		
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+
+	@Override
+	public User searchId(int userId) throws SQLException
+	{
+		User result = new User();
+		
+		Connection conn = dataSource.getConnection();
+		
+		String sql = "SELECT USERID, USERNAME, JOBID, USERBIRTH FROM VIEW_USER WHERE USERID = ?";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, userId);
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			System.out.println((rs.getString("JOBID")));
+			
+			
+			result.setUserBirth(rs.getString("USERBIRTH"));
+			result.setUserId(rs.getString("USERID"));
+			result.setUserName(rs.getString("USERNAME"));
+			result.setJobId(rs.getString("JOBID"));
+		}
+		
+		rs.close();
 		pstmt.close();
 		conn.close();
 		

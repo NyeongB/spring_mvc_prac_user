@@ -9,4 +9,5 @@ public interface IUserDAO
 	public int add(User user) throws SQLException;
 	public int modify(User user) throws SQLException;
 	public int remove(int userId) throws SQLException;
+	public User searchId(int userId) throws SQLException;
 }

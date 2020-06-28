@@ -23,7 +23,7 @@ String cp = request.getContextPath();
 		{
 			
 			
-			$("#userAdd").submit();
+			$("#userUpdate").submit();
 		});
 		
 	});
@@ -46,9 +46,9 @@ String cp = request.getContextPath();
 				<div class="row">
 					<div class="col-md-12">
 
-						<form action="useradd.action" method="post" id="userAdd">
-						이름 : <input type="text" class="form-control" name="userName"><br>
-						생년월일: <input type="text" class="form-control" name="userBirth"><br>
+						<form action="userupdate.action" method="post" id="userUpdate">
+						이름 : <input type="text" class="form-control" name="userName" value="${user.userName }"><br>
+						생년월일: <input type="text" class="form-control" name="userBirth" value="${user.userBirth }"><br>
 						<select name="jobId" id="jobId" class="form-control">
 							<c:forEach var="job" items="${jobList}">
 								<option value="${job.jobId }">${job.jobName }</option>

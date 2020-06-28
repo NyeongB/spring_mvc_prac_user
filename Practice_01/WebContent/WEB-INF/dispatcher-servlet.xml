@@ -67,6 +67,13 @@
 	</bean>
 	
 	
+	
+	<bean name="/userupdateform.action" class="com.test.mvc.UserUpdateFormController">
+		<property name="dao" ref="userDao"></property>
+		<property name="jobDao" ref="jobDao"></property>
+	</bean>
+	
+	
 
 </beans>
 

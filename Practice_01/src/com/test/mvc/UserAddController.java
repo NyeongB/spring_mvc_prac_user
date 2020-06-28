@@ -16,10 +16,32 @@ public class UserAddController implements Controller
 	}
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ModelAndView mav = new ModelAndView();
+		System.out.println("11111111111");
+		System.out.println(request.getParameter("userName"));
+		System.out.println(request.getParameter("jobId"));
+		System.out.println(request.getParameter("userBirth"));
+		
+		//request.getParameter("");
+		
+		
+		try
+		{
+			User user = new User();
+			
+			user.setJobId(request.getParameter("jobId"));
+			user.setUserName(request.getParameter("userName"));
+			user.setUserBirth(request.getParameter("userBirth"));
+			
+			dao.add(user);
+		} catch (Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		mav.setViewName("redirect:userlist.action");
+		return mav;
 	}
 
 }

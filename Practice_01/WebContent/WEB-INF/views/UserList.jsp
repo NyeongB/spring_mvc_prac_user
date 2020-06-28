@@ -30,7 +30,7 @@
 		
 		$(".updateBtn").click(function()
 		{
-			
+			$(location).attr("href","userupdateform.action?userId="+$(this).val());
 		});
 		
 		$(".addBtn").click(function()
@@ -70,7 +70,7 @@
 				<button type="button" class="btn deleteBtn" value="${user.userId }">Delete</button>
 			</td>
 			<td>
-				<button type="button" class="btn updateBtn">Update</button>
+				<button type="button" class="btn updateBtn" value="${user.userId }">Update</button>
 			</td>
 		</tr>
 		</c:forEach>

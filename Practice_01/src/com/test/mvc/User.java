@@ -2,8 +2,28 @@ package com.test.mvc;
 
 public class User
 {
-	private String userId, userName, userAge, jobName;
+	private String userId, userName, userAge, jobName, jobId,userBirth;
 	
+	public String getUserBirth()
+	{
+		return userBirth;
+	}
+
+	public void setUserBirth(String userBirth)
+	{
+		this.userBirth = userBirth;
+	}
+
+	public String getJobId()
+	{
+		return jobId;
+	}
+
+	public void setJobId(String jobId)
+	{
+		this.jobId = jobId;
+	}
+
 	public String getUserId()
 	{
 		return userId;
