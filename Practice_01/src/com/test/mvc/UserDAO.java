@@ -68,6 +68,11 @@ public class UserDAO implements IUserDAO
 	public int modify(User user) throws SQLException
 	{
 		int result = 0;
+		System.out.println("////////////");
+		System.out.println(user.getUserName());
+		System.out.println(user.getUserBirth());
+		System.out.println(user.getJobId());
+		System.out.println(user.getUserId());
 		
 		Connection conn = dataSource.getConnection();
 		String sql = "UPDATE TBL_USER SET USERNAME =?,"

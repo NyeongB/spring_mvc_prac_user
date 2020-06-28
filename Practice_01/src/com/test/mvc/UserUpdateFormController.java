@@ -26,8 +26,8 @@ public class UserUpdateFormController implements Controller
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		String userId = request.getParameter("userId");
-		System.out.println(userId);
-		System.out.println("11111");
+		//System.out.println(userId);
+		//System.out.println("11111");
 		ModelAndView mav = new ModelAndView();
 		User user = new User();
 		ArrayList<Job> jobList = new ArrayList<Job>();

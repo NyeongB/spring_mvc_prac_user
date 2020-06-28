@@ -19,10 +19,10 @@ public class UserAddController implements Controller
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		ModelAndView mav = new ModelAndView();
-		System.out.println("11111111111");
-		System.out.println(request.getParameter("userName"));
-		System.out.println(request.getParameter("jobId"));
-		System.out.println(request.getParameter("userBirth"));
+		//System.out.println("11111111111");
+		//System.out.println(request.getParameter("userName"));
+		///System.out.println(request.getParameter("jobId"));
+		//System.out.println(request.getParameter("userBirth"));
 		
 		//request.getParameter("");
 		
@@ -34,6 +34,7 @@ public class UserAddController implements Controller
 			user.setJobId(request.getParameter("jobId"));
 			user.setUserName(request.getParameter("userName"));
 			user.setUserBirth(request.getParameter("userBirth"));
+			user.setUserId(request.getParameter("userId"));
 			
 			dao.add(user);
 		} catch (Exception e)

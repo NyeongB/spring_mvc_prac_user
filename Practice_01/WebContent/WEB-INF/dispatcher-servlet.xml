@@ -74,6 +74,10 @@
 	</bean>
 	
 	
+	
+	<bean name="/userupdate.action" class="com.test.mvc.UserUpdateController">
+		<property name="dao" ref="userDao"></property>
+	</bean>
 
 </beans>
 

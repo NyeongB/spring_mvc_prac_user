@@ -47,6 +47,7 @@ String cp = request.getContextPath();
 					<div class="col-md-12">
 
 						<form action="userupdate.action" method="post" id="userUpdate">
+						ID : <input type="text" class="form-control" name="userId" value="${user.userId }" readonly="readonly"><br>
 						이름 : <input type="text" class="form-control" name="userName" value="${user.userName }"><br>
 						생년월일: <input type="text" class="form-control" name="userBirth" value="${user.userBirth }"><br>
 						<select name="jobId" id="jobId" class="form-control">
